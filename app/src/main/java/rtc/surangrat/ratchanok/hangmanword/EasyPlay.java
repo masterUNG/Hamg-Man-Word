@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ public class EasyPlay extends AppCompatActivity {
     private MyConstant myConstant;
     private String[] questionStrings, answerStrings;
     private String resultString;
+    private int maxLengthofEditText = 4;
 
 
 
@@ -29,6 +31,8 @@ public class EasyPlay extends AppCompatActivity {
         bindWidget();
 
         checkTime();
+
+        editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLengthofEditText)});
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override

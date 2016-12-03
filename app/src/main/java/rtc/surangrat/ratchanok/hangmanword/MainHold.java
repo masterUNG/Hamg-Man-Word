@@ -3,6 +3,7 @@ package rtc.surangrat.ratchanok.hangmanword;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -28,17 +29,25 @@ public class MainHold extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View view) {
 
+        int i = 4;
+
         switch (view.getId()) {
             case R.id.imageView3:
-                startActivity(new Intent(MainHold.this, EasyPlay.class));
+                i = 4;
                 break;
             case R.id.imageView4:
-                startActivity(new Intent(MainHold.this, MedienPlay.class));
+                i = 6;
                 break;
             case R.id.imageView5:
-                startActivity(new Intent(MainHold.this, PlayActivity.class));
+                i = 8;
                 break;
-        }
+        }   // switch
+
+        Log.d("3decV1", "ตัวส่ง maxLength ==> " + i);
+
+        Intent intent = new Intent(MainHold.this, PlayActivity.class);
+        intent.putExtra("Word", i);
+        startActivity(intent);
 
 
     }   // onClick

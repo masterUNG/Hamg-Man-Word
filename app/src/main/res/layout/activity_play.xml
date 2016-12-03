@@ -26,7 +26,7 @@
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/relimage"
@@ -36,101 +36,52 @@
         android:textStyle="normal|bold"
         android:textColor="@android:color/background_dark" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true">
+        android:layout_below="@+id/txtQuestion"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textSize="45sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_red_light" />
 
-        <EditText
-            android:id="@+id/editText10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
 
-        <EditText
-            android:id="@+id/editText11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
+    <TextView
+        android:text="Score 4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_alignParentRight="true"
+        android:textSize="36sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="normal|bold" />
 
-        <EditText
-            android:id="@+id/editText12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
 
-        <EditText
-            android:id="@+id/editText13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
 
-        <EditText
-            android:id="@+id/editText14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
+        android:id="@+id/editText"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="36sp"
+        android:padding="10dp"
+        android:textColor="@android:color/white" />
 
-        <EditText
-            android:id="@+id/editText15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
-
-        <EditText
-            android:id="@+id/editText16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
-
-        <EditText
-            android:id="@+id/editText17"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:maxLength="1"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:textSize="36sp"
-            android:background="@android:color/holo_red_light" />
-
-    </LinearLayout>
+    <TextView
+        android:text="30 sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
