@@ -1,6 +1,5 @@
 package rtc.surangrat.ratchanok.hangmanword;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +10,8 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class PlayActivity extends AppCompatActivity {
 
     private EditText editText;
@@ -20,6 +21,7 @@ public class PlayActivity extends AppCompatActivity {
     private String[] questionStrings, answerStrings;
     private String resultString;
     private int maxLengthofEditText;
+    private ArrayList<String> answerArrayList, testStrings;
 
 
     @Override
@@ -54,6 +56,8 @@ public class PlayActivity extends AppCompatActivity {
 
         changeView(0);
 
+        checkWord(scoreAnInt);
+
 
         //About Edittext
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLengthofEditText)});
@@ -69,6 +73,7 @@ public class PlayActivity extends AppCompatActivity {
 
                 resultString = editText.getText().toString();
                 answerTextView.setText(resultString);
+                myArrayList(resultString);
 
             }   // onTextChange
 
@@ -81,6 +86,18 @@ public class PlayActivity extends AppCompatActivity {
 
     }   // Main Method
 
+    private void myArrayList(String resultString) {
+
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add(resultString);
+        String s = strings.toString();
+        Log.d("3decV2", "resultString ==>" + resultString);
+        Log.d("3decV2", "s ==> " + s);
+
+
+
+    }   // myArrayList
+
 
     private void changeView(int index) {
 
@@ -90,11 +107,22 @@ public class PlayActivity extends AppCompatActivity {
 
     private void checkWord(int indexWord) {
 
-        String[] strings = answerStrings[index].split("");
-
-        for (int i = 0; i < strings.length; i++) {
-            Log.d("1decV1", "strings(" + i + ")= " + strings[i]);
+        Log.d("3decV3", "Answer(" + indexWord + ") ==> " + answerStrings[indexWord]);
+        String[] strings = answerStrings[indexWord].split("");
+        for (int i = 1; i < strings.length; i++) {
+            Log.d("3decV3", "strings(" + i + ")= " + strings[i]);
         }
+
+
+
+        for (int i=1;i<strings.length;i++) {
+            answerArrayList = new ArrayList<String>();
+            answerArrayList.add(strings[i]);
+            Log.d("3decV3", "answerArrayList ==> " + answerArrayList.toString());
+        }
+
+
+
 
 
     }   // checkWord
@@ -102,8 +130,8 @@ public class PlayActivity extends AppCompatActivity {
     private void checkTime() {
 
         if (timeAnInt == 0) {
-            Intent intent = new Intent(PlayActivity.this, ShowScore.class);
-            startActivity(intent);
+//            Intent intent = new Intent(PlayActivity.this, ShowScore.class);
+//            startActivity(intent);
         }   // if
 
         Handler handler = new Handler();
