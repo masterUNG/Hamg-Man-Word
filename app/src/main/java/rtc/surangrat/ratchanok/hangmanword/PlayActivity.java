@@ -22,7 +22,6 @@ public class PlayActivity extends AppCompatActivity {
     private int maxLengthofEditText;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +31,31 @@ public class PlayActivity extends AppCompatActivity {
 
         checkTime();
 
+        //Setup
         maxLengthofEditText = getIntent().getIntExtra("Word", 4);
         Log.d("3decV1", "maxLength ==> " + maxLengthofEditText);
 
+        //Question & Answer
+        myConstant = new MyConstant();
+        switch (maxLengthofEditText) {
+            case 4:
+                questionStrings = myConstant.getQuestionStrings();
+                answerStrings = myConstant.getAnswerStrings();
+                break;
+            case 6:
+                questionStrings = myConstant.getQuestion2Strings();
+                answerStrings = myConstant.getAnswer2Strings();
+                break;
+            case 8:
+                questionStrings = myConstant.getQuestion3Strings();
+                answerStrings = myConstant.getAnswer3Strings();
+                break;
+        }   // switch
+
+        changeView(0);
+
+
+        //About Edittext
         editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(maxLengthofEditText)});
 
         editText.addTextChangedListener(new TextWatcher() {
@@ -58,13 +79,7 @@ public class PlayActivity extends AppCompatActivity {
         });
 
 
-
-
     }   // Main Method
-
-
-
-
 
 
     private void changeView(int index) {
@@ -80,7 +95,6 @@ public class PlayActivity extends AppCompatActivity {
         for (int i = 0; i < strings.length; i++) {
             Log.d("1decV1", "strings(" + i + ")= " + strings[i]);
         }
-
 
 
     }   // checkWord
