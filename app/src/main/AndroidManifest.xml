@@ -23,8 +23,7 @@
         <activity
             android:name=".MainHold"
             android:screenOrientation="portrait" />
-        <activity android:name=".EasyPlay" />
-        <activity android:name=".MedienPlay" />
+
         <activity android:name=".ShowScore"></activity>
     </application>
 
