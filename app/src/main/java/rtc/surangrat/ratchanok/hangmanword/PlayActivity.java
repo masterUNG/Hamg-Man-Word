@@ -16,7 +16,7 @@ public class PlayActivity extends AppCompatActivity {
 
     private EditText editText;
     private TextView timeTextView, scoreTextView, questionTextView, answerTextView;
-    private int scoreAnInt = 0, timeAnInt = 30, wordAnInt = 0, index = 0;
+    private int scoreAnInt = 0, timeAnInt = 30, wordAnInt = 0, index = 0, timesWordAnInt = 0;
     private MyConstant myConstant;
     private String[] questionStrings, answerStrings;
     private String resultString;
@@ -89,14 +89,22 @@ public class PlayActivity extends AppCompatActivity {
     private void myArrayList(String resultString) {
 
         ArrayList<String> strings = new ArrayList<String>();
-        strings.add(resultString);
+        String strResult = resultString.substring(timesWordAnInt, timesWordAnInt + 1);
+        strings.add(strResult);
         String s = strings.toString();
-        Log.d("3decV2", "resultString ==>" + resultString);
+        timesWordAnInt += 1;
+        Log.d("3decV2", "resultString ==>" + strResult);
         Log.d("3decV2", "s ==> " + s);
 
-
+        checkAnswer(s); // Check สิ่งที่ คีเข้าไปใน Edit text [1], [12], [123], [1234]
 
     }   // myArrayList
+
+    private void checkAnswer(String s) {
+
+
+
+    }   // checkAnswer
 
 
     private void changeView(int index) {
@@ -107,11 +115,14 @@ public class PlayActivity extends AppCompatActivity {
 
     private void checkWord(int indexWord) {
 
-        Log.d("3decV3", "Answer(" + indexWord + ") ==> " + answerStrings[indexWord]);
+        Log.d("3decV3", "คำตอบ ข้อที่ (" + indexWord + ") ==> " + answerStrings[indexWord]);
         String[] strings = answerStrings[indexWord].split("");
         for (int i = 1; i < strings.length; i++) {
             Log.d("3decV3", "strings(" + i + ")= " + strings[i]);
-        }
+
+            createTrueAnswer(maxLengthofEditText, strings[i]);
+
+        }   // for
 
 
 
@@ -126,6 +137,17 @@ public class PlayActivity extends AppCompatActivity {
 
 
     }   // checkWord
+
+    private void createTrueAnswer(int maxLengthofEditText, String string) {
+
+        ArrayList<String> strings = new ArrayList<String>();
+        strings.add(string);
+        String s = strings.toString();
+        Log.d("3decV4", "ค่าที่ได้จากการแยกคำ s ==> " + s);
+
+
+
+    }   // createTrue
 
     private void checkTime() {
 
