@@ -8,6 +8,7 @@ import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,12 +18,13 @@ public class PlayActivity extends AppCompatActivity {
     private EditText editText;
     private TextView timeTextView, scoreTextView, questionTextView, answerTextView;
     private int scoreAnInt = 0, timeAnInt = 30, wordAnInt = 0, index = 0,
-            timesWordAnInt = 0, indexSingleAnswerAnInt = 0;
+            timesWordAnInt = 0, indexSingleAnswerAnInt = 0, indexHang = 0;
     private MyConstant myConstant;
     private String[] questionStrings, answerStrings, singleAnswerStrings;
     private String resultString;
     private int maxLengthofEditText;
     private ArrayList<String> answerArrayList, testStrings;
+    private ImageView imageView;
 
 
     @Override
@@ -110,13 +112,27 @@ public class PlayActivity extends AppCompatActivity {
             Log.d("3decV5", "Result OK");
         } else {
             Log.d("3decV5", "Result NO");
-        }
+
+            changeImage();
+
+        }   // if
 
         for (int i=0;i<singleAnswerStrings.length;i++) {
             Log.d("3decV5", "singleAnswerString(" + i + ") ==> " + singleAnswerStrings[i]);
         }   //for
 
     }   // checkAnswer
+
+    private void changeImage() {
+
+        int[] intHang = new int[]{R.drawable.hang2, R.drawable.hang3,
+                R.drawable.hang4, R.drawable.hang5};
+
+        imageView.setImageResource(intHang[indexHang]);
+        indexHang += 1;
+
+    }   // change
+
 
 
     private void changeView(int index) {
@@ -184,11 +200,13 @@ public class PlayActivity extends AppCompatActivity {
     }   // checkTime
 
     private void bindWidget() {
+
         editText = (EditText) findViewById(R.id.editText);
         timeTextView = (TextView) findViewById(R.id.textView4);
         scoreTextView = (TextView) findViewById(R.id.textView5);
         questionTextView = (TextView) findViewById(R.id.txtQuestion);
         answerTextView = (TextView) findViewById(R.id.textView6);
+        imageView = (ImageView) findViewById(R.id.imageView2);
 
     }
 
