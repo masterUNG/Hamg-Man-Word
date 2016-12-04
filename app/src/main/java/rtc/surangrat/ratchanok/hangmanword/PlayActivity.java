@@ -16,9 +16,10 @@ public class PlayActivity extends AppCompatActivity {
 
     private EditText editText;
     private TextView timeTextView, scoreTextView, questionTextView, answerTextView;
-    private int scoreAnInt = 0, timeAnInt = 30, wordAnInt = 0, index = 0, timesWordAnInt = 0;
+    private int scoreAnInt = 0, timeAnInt = 30, wordAnInt = 0, index = 0,
+            timesWordAnInt = 0, indexSingleAnswerAnInt = 0;
     private MyConstant myConstant;
-    private String[] questionStrings, answerStrings;
+    private String[] questionStrings, answerStrings, singleAnswerStrings;
     private String resultString;
     private int maxLengthofEditText;
     private ArrayList<String> answerArrayList, testStrings;
@@ -36,6 +37,7 @@ public class PlayActivity extends AppCompatActivity {
         //Setup
         maxLengthofEditText = getIntent().getIntExtra("Word", 4);
         Log.d("3decV1", "maxLength ==> " + maxLengthofEditText);
+        singleAnswerStrings = new String[maxLengthofEditText];
 
         //Question & Answer
         myConstant = new MyConstant();
@@ -92,17 +94,27 @@ public class PlayActivity extends AppCompatActivity {
         String strResult = resultString.substring(timesWordAnInt, timesWordAnInt + 1);
         strings.add(strResult);
         String s = strings.toString();
-        timesWordAnInt += 1;
         Log.d("3decV2", "resultString ==>" + strResult);
         Log.d("3decV2", "s ==> " + s);
 
         checkAnswer(s); // Check สิ่งที่ คีเข้าไปใน Edit text [1], [12], [123], [1234]
+        timesWordAnInt += 1;
 
     }   // myArrayList
 
     private void checkAnswer(String s) {
 
+        Log.d("3decV5", " s ==> " + s);
 
+        if (s.equals(singleAnswerStrings[timesWordAnInt])) {
+            Log.d("3decV5", "Result OK");
+        } else {
+            Log.d("3decV5", "Result NO");
+        }
+
+        for (int i=0;i<singleAnswerStrings.length;i++) {
+            Log.d("3decV5", "singleAnswerString(" + i + ") ==> " + singleAnswerStrings[i]);
+        }   //for
 
     }   // checkAnswer
 
@@ -144,6 +156,9 @@ public class PlayActivity extends AppCompatActivity {
         strings.add(string);
         String s = strings.toString();
         Log.d("3decV4", "ค่าที่ได้จากการแยกคำ s ==> " + s);
+
+        singleAnswerStrings[indexSingleAnswerAnInt] = s;
+        indexSingleAnswerAnInt += 1;
 
 
 
